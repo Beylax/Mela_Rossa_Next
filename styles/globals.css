@@ -13,3 +13,63 @@ body {
 * {
   box-sizing: border-box;
 }
+
+:root{
+  --red-color: #C31A2F;
+  --green-color: #1eb514;
+
+  --border-radius: 10px;
+  
+  --transition-duration: .3s;
+
+  --transition-linear: all var(--transition-duration) linear;
+}
+
+/*General styles*/
+.btn{
+  background-color: var(--green-color);
+  color: white;
+  font-weight: bold;
+
+  padding: .5rem 1rem;
+
+  border: 2px solid var(--green-color);
+  border-radius: var(--border-radius);
+  
+  transition: var(--transition-linear);
+}
+
+.btn:hover{
+  color: var(--green-color);
+  background-color: transparent;
+}
+
+/*Navbar*/
+.Navbar{
+  background-color: var(--red-color);
+}
+
+#nav_container_toggler{
+  background-image: linear-gradient(white, white);
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: left center;
+
+  transition: var(--transition-linear);
+}
+
+/*navbar links hover effect*/
+.Navbar .nav-link{
+  padding: .1rem 0;
+
+  background-image: linear-gradient(white, white);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+
+  transition: var(--transition-linear);
+}
+
+.Navbar .nav-link:hover{
+  background-size: 100% 1px;
+}
