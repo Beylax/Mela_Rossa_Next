@@ -2,7 +2,7 @@ import Head from "next/head";
 
 export default function Home() {
 	return (
-		<div className="Home container mx-auto">
+		<div className="Home mx-2">
 			<Head>
 				<title>La Mela Rossa</title>
 				<meta
@@ -16,9 +16,9 @@ export default function Home() {
 				<div className="md:w-1/2 font-bold italic flex flex-col justify-center items-center">
 					<div className="text-5xl md:text-7xl mx-auto">Entra nella</div>
 					<div className="text-5xl md:text-7xl mx-auto">famiglia della</div>
-					<div className="text-5xl md:text-7xl text-red my-5 mx-auto">MELA ROSSA</div>
-					<div className="text-xl md:text-2xl text-red font-normal mx-auto">Centri estivi - Doposcuola - Giochi - Uscite - Sport</div>
-					<div className="flex md:w-1/2 mt-5">
+					<div className="text-5xl md:text-7xl text-red my-5 mx-auto whitespace-nowrap">MELA ROSSA</div>
+					<div className="text-xl md:text-2xl text-red font-normal mx-10">Centri estivi - Doposcuola - Giochi - Uscite - Sport</div>
+					<div className="h-16 flex w-11/12 lg:w-1/2 my-5">
 						<button type="button" className="btn w-1/2 mr-2">CONTATTACI</button>
 						<button type="button" className="btn w-1/2 ml-2">ISCRIVITI</button>
 					</div>

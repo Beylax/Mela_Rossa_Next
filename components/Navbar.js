@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Navbar() {
 	return (
-		<nav className="Navbar md:max-h-24 w-screen p-4 text-white z-10">
+		<nav className="Navbar md:max-h-24 p-4 text-white z-10">
 			<div
 				id="nav_container"
 				className="container md:max-h-24 mx-auto flex flex-col md:flex-row md:items-center"

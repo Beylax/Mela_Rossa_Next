@@ -1,7 +1,12 @@
 export default function Contact() {
 	return (
-		<div className="Contact">
-			CONTACT
+		<div className="Contact w-full flex">
+			<div className="w-1/2">
+				ciao
+			</div>
+			<div className="w-1/2">
+				ciao1
+			</div>
 		</div>
 	);
 }

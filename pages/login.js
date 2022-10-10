@@ -19,12 +19,14 @@ export default function Login() {
 					type="email"
 					className="h-10 my-4 mx-auto w-9/12"
 					onChange={(event) => setEmail(event.target.value)}
+					required
 				/>
 				<label htmlFor="password" className="font-bold">Password🍎</label>
 				<input
 					type="password"
 					className="h-10 my-4 mx-auto w-9/12"
 					onChange={(event) => setPwd(event.target.value)}
+					required
 				/>
 				<button type="submit" className="btn mx-auto">
 					ACCEDI
