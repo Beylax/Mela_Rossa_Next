@@ -5,13 +5,14 @@ export default function Login() {
 	const [pwd, setPwd] = useState();
 
 	return (
-		<div className="Login absolute inset-0 text-center text-2xl flex justify-center items-center">
+		<div className="Login text-center text-2xl flex justify-center items-center my-10 md:my-24">
 			<form
 				id="login_form"
-				className="w-full w-11/12 md:w-1/2 py-7 py-28"
+				className="w-full w-11/12 md:w-1/2 py-28"
                 onSubmit={(event) => {
                     event.preventDefault();
                     //Login logic
+					
                 }}
 			>
 				<label htmlFor="email" className="font-bold">Email🍎</label>
