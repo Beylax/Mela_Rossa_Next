@@ -85,6 +85,16 @@ main {
 	background-color: var(--green-dark-color);
 }
 
+.btn.disabled{
+	cursor: not-allowed;
+	opacity: .5;
+}
+
+.btn.disabled:hover,
+.btn.disabled:focus {
+	background-color: var(--green-color);
+}
+
 input {
 	box-shadow: 0 0 1px 1px black;
 	-webkit-box-shadow: 0 0 1px 1px black;
@@ -233,4 +243,11 @@ input:focus {
 .Sidenavbar .nav-link.active {
 	font-weight: 500;
 	background-size: 100% 2px;
+}
+
+/*Management user*/
+
+.user{
+	border-radius: 20px;
+	border: 1px solid var(--red-color);
 }
