@@ -16,6 +16,9 @@ export default async function getUser(req, res) {
 			methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
 			origin: "*",
 		});
+
+		//JWT Auth
+
 		res.status(200).json(data[0]);
 	} catch (error) {
 		res.status(500).json({ error: error.message });

@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
+import Sidenavbar from "./Sidenavbar";
 import Footer from "./Footer";
 import { useEffect } from "react";
 import { useRouter } from 'next/router'
@@ -7,6 +8,7 @@ export default function Layout({ children }) {
 	let router = useRouter();
 
 	useEffect(() => {
+		//Check the active link
 		let links = document.getElementsByClassName("nav-link");
 		for (let i = 0; i < links.length; i++){
 			if (links[i].getAttribute("href") === router.pathname) {
@@ -17,6 +19,15 @@ export default function Layout({ children }) {
 			}
 		}
 	});
+
+	if (router.pathname.includes("/management")) { 
+		return (
+			<div className="flex min-h-screen">
+				<Sidenavbar/>
+				<main id="sidenav_main" className="basis-4/5">{children}</main>
+			</div>
+		);
+	}
 
 	return (
 		<>

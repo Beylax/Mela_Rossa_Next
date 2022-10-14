@@ -9,7 +9,7 @@ export default function Navbar() {
 				className="container md:max-h-24 mx-auto flex flex-col md:flex-row md:items-center"
 			>
 				<Link href="/">
-					<div className="hidden md:block max-h-screen items-center flex justify-center cursor-pointer">
+					<a className="hidden md:block max-h-screen items-center flex justify-center cursor-pointer">
 						<Image
 							src="/images/logo_mela_rossa.png"
 							className="logo"
@@ -17,7 +17,7 @@ export default function Navbar() {
 							height={60}
 							alt="La Mela Rossa"
 						/>
-					</div>
+					</a>
 				</Link>
 				<div className=" max-h-screen md:grow flex flex-col md:flex-row gap-10 justify-end items-center text-xl font-light mb-8 md:mb-0">
 					<Link href="/">

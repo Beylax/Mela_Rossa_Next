@@ -36,8 +36,8 @@ main {
 	--transition-duration: 0.3s;
 	--transition-duration-slow: 1s;
 
-	--transition-linear: all var(--transition-duration) linear;
-	--transition-slow: all var(--transition-duration-slow) linear;
+	--transition-linear: all var(--transition-duration) ease-in-out;
+	--transition-slow: all var(--transition-duration-slow) ease-in-out;
 }
 
 /*General styles*/
@@ -87,6 +87,7 @@ main {
 
 input {
 	box-shadow: 0 0 1px 1px black;
+	-webkit-box-shadow: 0 0 1px 1px black;
 	border-radius: var(--border-radius);
 	padding: 0.3rem;
 }
@@ -97,6 +98,10 @@ input:focus {
 
 .text-red {
 	color: var(--red-color);
+}
+
+.hidden{
+	display: none;
 }
 
 /*Navbar*/
@@ -181,4 +186,51 @@ input:focus {
 
 #login_form > * {
 	display: block;
+}
+
+/*Sidenavbar*/
+
+#sidenav_main{
+	transition: var(--transition-linear);
+}
+
+.Sidenavbar{
+	background-color: var(--red-color);
+	transition: var(--transition-linear);
+}
+
+.sidenav-toggle{
+	transition: var(--transition-linear);
+}
+
+.rotate{
+	rotate: 360deg;
+}
+
+.sidenav-item{
+	color: white;
+	font-size:large;
+	text-align: center;
+	padding: 1rem;
+}
+
+/*navbar links hover effect*/
+.Sidenavbar .nav-link {
+	padding: 0.1rem 0;
+
+	background-image: linear-gradient(white, white);
+	background-size: 0% 1px;
+	background-repeat: no-repeat;
+	background-position: left bottom;
+
+	transition: var(--transition-linear);
+}
+
+.Sidenavbar .nav-link:hover {
+	background-size: 100% 1px;
+}
+
+.Sidenavbar .nav-link.active {
+	font-weight: 500;
+	background-size: 100% 2px;
 }
