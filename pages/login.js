@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/router';
-import axios from "axios";
+import { signIn } from 'next-auth/react'
 
 export default function Login() {
 	const [email, setEmail] = useState();
@@ -16,11 +16,14 @@ export default function Login() {
 				className="w-full w-11/12 md:w-1/2 py-28"
 				onSubmit={(event) => {
 					event.preventDefault();
-					router.push("/management");
-					// axios.get("/api/users/" + email).then(res => {
-					// 	localStorage.setItem("user", res.data);
-						
-					// });
+
+					const res = signIn('credentials', {
+						email: email,
+						password: pwd,
+						redirect: false
+					});
+
+					console.log(res);
 				}}
 			>
 				<label htmlFor="email" className="font-bold">

@@ -29,7 +29,7 @@ export default function Navbar() {
 					<Link href="/contact">
 						<a className="nav-link">CONTATTI</a>
 					</Link>
-					<Link href="/login">
+					<Link href="/api/auth/signin">
 						<a className="btn">ACCEDI</a>
 					</Link>
 				</div>
