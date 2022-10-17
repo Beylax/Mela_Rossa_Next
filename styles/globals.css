@@ -249,5 +249,6 @@ input:focus {
 
 .user{
 	border-radius: 20px;
-	border: 1px solid var(--red-color);
+	box-shadow: 0 0 10px var(--red-color);
+	-webkit-box-shadow: 0 0 10px var(--red-color);
 }

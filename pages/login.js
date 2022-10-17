@@ -16,10 +16,11 @@ export default function Login() {
 				className="w-full w-11/12 md:w-1/2 py-28"
 				onSubmit={(event) => {
 					event.preventDefault();
-					axios.get("/api/users/" + email).then(res => {
-						localStorage.setItem("user", res.data);
-						router.push("/management");
-					})
+					router.push("/management");
+					// axios.get("/api/users/" + email).then(res => {
+					// 	localStorage.setItem("user", res.data);
+						
+					// });
 				}}
 			>
 				<label htmlFor="email" className="font-bold">
