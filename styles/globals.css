@@ -20,6 +20,7 @@ main {
 	position: relative;
 	flex: 1;
 	display: block;
+	overflow-x: hidden;
 }
 
 * {
@@ -200,12 +201,26 @@ input:focus {
 
 /*About*/
 
+.swiper{
+	overflow: visible !important;
+}
+
+.swiper *{
+	transition: var(--transition-linear);
+}
+
+.swiper-slide-active{
+	z-index: 10;
+	scale: 1.2;
+}
+
 .user-card > img{
 	z-index: -1;
 }
 
-.swiper-slide-active{
-	scale: 1.2;
+.user-card > div{
+	text-align: center;
+	font-weight: 1000;
 }
 
 /*Sidenavbar*/

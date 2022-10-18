@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
+import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/react'
 
 export default function Login() {
 	const [email, setEmail] = useState();
 	const [pwd, setPwd] = useState();
 
+	const [error, setError] = useState("");
+
 	var md5 = require("md5");
+	let router = useRouter();
 
 	return (
 		<div className="Login text-center text-2xl flex justify-center items-center my-10 md:my-24">
@@ -15,13 +19,22 @@ export default function Login() {
 				onSubmit={(event) => {
 					event.preventDefault();
 
-					const res = signIn('credentials', {
+					signIn('credentials', {
 						email: email,
 						password: pwd,
 						redirect: false,
+					}).then(res => {
+						if (res.status === 401) {
+							//oppure lanciare un toaster
+							setError(res.error);
+						}
+
+						if (res.status === 200) {
+							router.push("/management");							
+						}
+						
 					});
 
-					console.log(res);
 				}}
 			>
 				<label htmlFor="email" className="font-bold">
@@ -45,6 +58,7 @@ export default function Login() {
 				<button type="submit" className="btn mx-auto">
 					ACCEDI
 				</button>
+				<div className="text-red text-center">{error}</div>
 			</form>
 		</div>
 	);

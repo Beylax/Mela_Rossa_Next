@@ -1,42 +1,60 @@
 import Link from "next/link";
 import Image from "next/image";
-import Loading from "../components/loading"
+import Loading from "../components/loading";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/parallax";
 
 function About({ data }) {
-	const [users, getUsers] = useState(data);
+	const [users] = useState(data);
+	const [slidesPerView, setSlidesPerView] = useState(3);
+
+	useEffect(() => {
+		window.addEventListener("resize", () => {
+			if (window.innerHeight <= 768) {
+				setSlidesPerView(1);
+			}
+			else {
+				setSlidesPerView(3);
+			}
+		});
+	}, []);
 
 	if (!users) {
-		<Loading></Loading>
+		<Loading></Loading>;
 	}
 
 	return (
 		<div className="About w-full h-full">
-			<div className="text-5xl font-bold text-center my-10">I NOSTRI EDUCATORI</div>
+			<div className="text-5xl font-bold text-center mt-10 mb-20">
+				I NOSTRI EDUCATORI
+			</div>
 			<Swiper
 				spaceBetween={50}
-				slidesPerView={3}
+				slidesPerView={slidesPerView}
 				centeredSlides={true}
-				onSlideChange={() => console.log('slide change')}
-				onSwiper={() => console.log(users)}
-				className="w-2/3"
+				onSlideChange={() => console.log("slide change")}
+				className="w-2/3 overflow-visible"
 			>
-				{
-					users.map((i, user) => (
-						<SwiperSlide key={i + "slide"}>
-							<div className="user-card border aspect-square relative">
-								<img className="absolute" src="/images/apple-bg.png" alt="logo"/>
-								<div className="user-card-img w-20 h-20 border rounded-full mx-auto my-5 bg-white">
-
-								</div>
-								<div>{user.Surname}</div>
+				{users.map((user, i) => (
+					<SwiperSlide key={i} className="w-full md:w-auto">
+						<div className="user-card aspect-square relative pr-5">
+							<img
+								className="absolute"
+								src="/images/apple-bg.png"
+								alt="logo"
+							/>
+							<div className="user-card-img w-20 h-20 border rounded-full mx-auto bg-white"></div>
+							<div className="text-2xl mt-20">{user.Surname}</div>
+							<div className="my-5">
+								{user.Firstname} {user.Lastname}
 							</div>
-						</SwiperSlide>
-					))
-				}
+							<div className="w-5/6 mx-auto">
+								{user.Description}
+							</div>
+						</div>
+					</SwiperSlide>
+				))}
 			</Swiper>
 		</div>
 	);
