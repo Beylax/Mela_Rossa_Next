@@ -34,7 +34,7 @@ export default function Layout({ children }) {
 			return (
 				<div className="flex min-h-screen">
 					<Sidenavbar/>
-					<main id="sidenav_main" className="basis-5/6">{children}</main>
+					<main id="sidenav_main" className="relative basis-5/6">{children}</main>
 				</div>
 			);
 		}
@@ -45,7 +45,7 @@ export default function Layout({ children }) {
 	return (
 		<>
 			<Navbar />
-			<main>{children}</main>
+			<main className="relative">{children}</main>
 			<Footer />
 		</>
 	);
