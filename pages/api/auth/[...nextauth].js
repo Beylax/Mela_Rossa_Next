@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import CredentialProvider from "next-auth/providers/credentials";
 import mysql from "mysql2/promise";
 import dbconn from "../../../dbconnection";
+import NextCors from "nextjs-cors";
 
 export default NextAuth({
 	providers: [
