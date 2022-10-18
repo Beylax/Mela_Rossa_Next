@@ -4,7 +4,6 @@ import NextCors from "nextjs-cors";
 
 export default async function getAllUsers(req, res) {
 	const dbconnection = await mysql.createConnection(dbconn);
-
 	await NextCors(req, res, {
 		// Options
 		methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
