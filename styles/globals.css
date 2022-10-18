@@ -198,6 +198,16 @@ input:focus {
 	display: block;
 }
 
+/*About*/
+
+.user-card > img{
+	z-index: -1;
+}
+
+.swiper-slide-active{
+	scale: 1.2;
+}
+
 /*Sidenavbar*/
 
 #sidenav_main{
