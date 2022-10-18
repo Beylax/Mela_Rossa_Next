@@ -2,31 +2,40 @@ import NextAuth from "next-auth";
 import CredentialProvider from "next-auth/providers/credentials";
 import mysql from "mysql2/promise";
 import dbconn from "../../../dbconnection";
-import NextCors from "nextjs-cors";
 
 export default NextAuth({
 	providers: [
 		CredentialProvider({
 			type: "credentials",
-			name: "Credentials",
-			credentials: {},
-			authorize: async (credentials) => {
+			name: "Login",
+			credentials: {
+				email: {},
+				password: {}
+			},
+			async authorize(credentials, req) {
 				const { email, password } = credentials;
 
 				// database look up
 				const dbconnection = await mysql.createConnection(dbconn);
 
-				const query = `SELECT * FROM Users WHERE Email = ? AND Pwd = ?`;
-				const values = [email, password];
+				const query = `SELECT * FROM Users WHERE Email = ?`;
+				const values = [email];
 				const [data] = await dbconnection.execute(query, values);
 				dbconnection.end();
 
-				if (data.length !== 0) {
-					return data[0];
+				const user = data[0];
+
+				if (!user) {
+					// login failed
+					throw new Error("Utente non esistente");
 				}
 
-				// login failed
-				throw new Error("Credenziali non corrette");
+				if (user.Pwd !== password) {
+					// login failed
+					throw new Error("Credenziali non corrette");
+				}
+				
+				return user;
 			},
 		}),
 	],

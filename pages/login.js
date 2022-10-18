@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/react'
 
 export default function Login() {
@@ -7,7 +6,6 @@ export default function Login() {
 	const [pwd, setPwd] = useState();
 
 	var md5 = require("md5");
-	const router = useRouter();
 
 	return (
 		<div className="Login text-center text-2xl flex justify-center items-center my-10 md:my-24">
@@ -20,7 +18,7 @@ export default function Login() {
 					const res = signIn('credentials', {
 						email: email,
 						password: pwd,
-						redirect: false
+						redirect: false,
 					});
 
 					console.log(res);
