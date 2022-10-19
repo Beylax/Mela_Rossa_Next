@@ -24,6 +24,8 @@ function About({ data }) {
 		<Loading></Loading>;
 	}
 
+	console.log(users);
+
 	return (
 		<div className="About w-full h-full">
 			<div className="text-5xl font-bold text-center mt-10">
@@ -66,6 +68,7 @@ function About({ data }) {
 
 // This gets called on every request
 export async function getServerSideProps() {
+	console.log(`${process.env.BASE_URL}/api/users`);
 	// Fetch data from external API
 	const res = await fetch(`${process.env.BASE_URL}/api/users`);
 	const data = await res.json();
