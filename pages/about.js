@@ -11,7 +11,7 @@ function About({ data }) {
 
 	useEffect(() => {
 		window.addEventListener("resize", () => {
-			if (window.innerHeight <= 768) {
+			if (window.innerWidth <= 1024) {
 				setSlidesPerView(1);
 			}
 			else {
@@ -26,30 +26,34 @@ function About({ data }) {
 
 	return (
 		<div className="About w-full h-full">
-			<div className="text-5xl font-bold text-center mt-10 mb-20">
+			<div className="text-5xl font-bold text-center mt-10">
 				I NOSTRI EDUCATORI
 			</div>
 			<Swiper
 				spaceBetween={50}
 				slidesPerView={slidesPerView}
 				centeredSlides={true}
+				loop={true}
 				onSlideChange={() => console.log("slide change")}
-				className="w-2/3 overflow-visible"
+				className="w-2/3 lg:w-full"
 			>
 				{users.map((user, i) => (
-					<SwiperSlide key={i} className="w-full md:w-auto">
-						<div className="user-card aspect-square relative pr-5">
+					<SwiperSlide key={i} className="w-full lg:w-auto aspect-square relative">
+						<div className="user-card pr-5">
 							<img
-								className="absolute"
+								className="absolute top-0"
 								src="/images/apple-bg.png"
 								alt="logo"
 							/>
-							<div className="user-card-img w-20 h-20 border rounded-full mx-auto bg-white"></div>
-							<div className="text-2xl mt-20">{user.Surname}</div>
-							<div className="my-5">
+							<div className="user-card-img aspect-square border rounded-full mx-auto bg-white mt-10"></div>
+							<div className="text-2xl mt-5">{user.Surname}</div>
+							<div className="lg:my-5">
 								{user.Firstname} {user.Lastname}
 							</div>
-							<div className="w-5/6 mx-auto">
+							{/* <div>
+								{user.Telephone}
+							</div> */}
+							<div className="hidden lg:block w-5/6 mx-auto">
 								{user.Description}
 							</div>
 						</div>

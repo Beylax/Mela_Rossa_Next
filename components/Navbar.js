@@ -33,7 +33,7 @@ export default function Navbar() {
 						<a className="btn">ACCEDI</a>
 					</Link>
 				</div>
-				<span
+				<section
 					id="nav_container_toggler"
 					className="relative h-12 w-12 flex items-center justify-center mx-auto md:hidden"
 				>
@@ -41,7 +41,7 @@ export default function Navbar() {
 						type="checkbox"
 						className="absolute inset-0 opacity-0"
 					/>
-				</span>
+				</section>
 			</div>
 		</nav>
 	);

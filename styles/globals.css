@@ -202,11 +202,11 @@ input:focus {
 /*About*/
 
 .swiper{
-	overflow: visible !important;
+	padding: 10vh 0 !important;
 }
 
-.swiper *{
-	transition: var(--transition-linear);
+.swiper-slide{
+	transition: var(--transition-linear) !important;
 }
 
 .swiper-slide-active{
@@ -216,6 +216,10 @@ input:focus {
 
 .user-card > img{
 	z-index: -1;
+}
+
+.user-card-img{
+	width: 30%;
 }
 
 .user-card > div{
@@ -276,4 +280,16 @@ input:focus {
 	border-radius: 20px;
 	box-shadow: 0 0 10px var(--red-color);
 	-webkit-box-shadow: 0 0 10px var(--red-color);
+}
+
+@media screen and (max-width: 1024px) {
+	.swiper, .swiper-wrapper{
+		overflow: visible !important;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	#nav_container > div{
+		max-height: 1000px !important;
+	}
 }
