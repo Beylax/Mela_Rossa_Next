@@ -70,7 +70,7 @@ function About({ data }) {
 export async function getServerSideProps() {
 	console.log(`${process.env.BASE_URL}/api/users`);
 	// Fetch data from external API
-	const res = await fetch(`${process.env.BASE_URL}/api/users`);
+	const res = await fetch(`${process.env.BASE_URL}/api/Users`);
 	const data = await res.json();
 
 	// Pass data to the page via props
