@@ -5,26 +5,36 @@ import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-function About({ data }) {
-	const [users] = useState(data);
+export default function About() {
+	const [users, setUsers] = useState(null);
 	const [slidesPerView, setSlidesPerView] = useState(3);
+	const [isLoading, setLoading] = useState(true);
 
 	useEffect(() => {
 		window.addEventListener("resize", () => {
 			if (window.innerWidth <= 1024) {
 				setSlidesPerView(1);
-			}
-			else {
+			} else {
 				setSlidesPerView(3);
 			}
 		});
+
+		console.log(process.env.BASE_URL);
+
+		setLoading(true);
+		fetch(`${process.env.BASE_URL}/api/Users`)
+			.then((res) => res.json())
+			.then((data) => {
+				setUsers(data);
+				setLoading(false);
+			});
 	}, []);
 
-	if (!users) {
-		<Loading></Loading>;
+	if (isLoading) {
+		return (
+			<Loading></Loading>
+		);
 	}
-
-	console.log(users);
 
 	return (
 		<div className="About w-full h-full">
@@ -40,7 +50,10 @@ function About({ data }) {
 				className="w-2/3 lg:w-full"
 			>
 				{users.map((user, i) => (
-					<SwiperSlide key={i} className="w-full lg:w-auto aspect-square relative">
+					<SwiperSlide
+						key={i}
+						className="w-full lg:w-auto aspect-square relative"
+					>
 						<div className="user-card pr-5">
 							<img
 								className="absolute top-0"
@@ -65,16 +78,3 @@ function About({ data }) {
 		</div>
 	);
 }
-
-// This gets called on every request
-export async function getServerSideProps() {
-	console.log(`${process.env.BASE_URL}/api/users`);
-	// Fetch data from external API
-	const res = await fetch(`${process.env.BASE_URL}/api/Users`);
-	const data = await res.json();
-
-	// Pass data to the page via props
-	return { props: { data } };
-}
-
-export default About;
