@@ -19,7 +19,7 @@ export default function About() {
 			}
 		});
 
-		console.log(process.env.BASE_URL);
+		console.log(process.env);
 
 		setLoading(true);
 		fetch(`${process.env.BASE_URL}/api/Users`)
