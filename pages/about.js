@@ -19,10 +19,10 @@ export default function About() {
 			}
 		});
 
-		console.log(process.env);
+		console.log(process.env.NEXT_PUBLIC_BASE_URL);
 
 		setLoading(true);
-		fetch(`${process.env.BASE_URL}/api/Users`)
+		fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/Users`)
 			.then((res) => res.json())
 			.then((data) => {
 				setUsers(data);

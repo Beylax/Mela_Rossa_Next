@@ -1,9 +1,9 @@
 const dbconnection = {
-    host: "remotemysql.com",
-    database: "kg9Esv1gdQ",
-    port: 3306,
-    user: "kg9Esv1gdQ",
-    password: "j9bAtcuHh4"
+    host: process.env.DB_HOST,
+    database: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_HOST,
+    password: process.env.DB_PASS
 }
 
 export default dbconnection;
