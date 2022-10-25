@@ -20,7 +20,12 @@ export default function About() {
 		});
 
 		setLoading(true);
-		fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`)
+		fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`, {
+			method: "GET",
+			headers: {
+				'Access-Control-Allow-Origin': '*'
+			},
+		})
 			.then((res) => res.json())
 			.then((data) => {
 				setUsers(data);
@@ -29,9 +34,7 @@ export default function About() {
 	}, []);
 
 	if (isLoading) {
-		return (
-			<Loading></Loading>
-		);
+		return <Loading></Loading>;
 	}
 
 	return (
