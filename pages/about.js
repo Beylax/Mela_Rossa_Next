@@ -22,7 +22,11 @@ export default function About() {
 
 		setLoading(true);
 		axios
-			.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`)
+			.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`, {
+				headers: {
+					'Access-Control-Allow-Origin': '*'
+				}
+			})
 			.then((data) => {
 				setUsers(data.data);
 				setLoading(false);

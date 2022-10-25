@@ -12,8 +12,6 @@ export default async function getAllUsers(req, res) {
 		optionsSuccessStatus: 200,
 	});
 
-	console.log(req);
-
 	if (req.method === "GET") {
 		try {
 			const query = "SELECT * FROM Users";
