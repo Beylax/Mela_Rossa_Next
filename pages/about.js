@@ -22,7 +22,7 @@ export default function About() {
 		console.log(process.env.NEXT_PUBLIC_BASE_URL);
 
 		setLoading(true);
-		fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/Users`)
+		fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`)
 			.then((res) => res.json())
 			.then((data) => {
 				setUsers(data);
