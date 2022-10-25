@@ -46,7 +46,6 @@ export default function About() {
 				slidesPerView={slidesPerView}
 				centeredSlides={true}
 				loop={true}
-				onSlideChange={() => console.log("slide change")}
 				className="w-2/3 lg:w-full"
 			>
 				{users.map((user, i) => (
