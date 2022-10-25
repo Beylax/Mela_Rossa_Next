@@ -9,7 +9,10 @@ export default async function getAllUsers(req, res) {
 		// Options
 		methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
 		origin: "*",
+		optionsSuccessStatus: 200,
 	});
+
+	console.log(req);
 
 	if (req.method === "GET") {
 		try {

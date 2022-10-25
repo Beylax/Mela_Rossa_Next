@@ -4,6 +4,7 @@ import Loading from "../components/loading";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import axios from "axios";
 
 export default function About() {
 	const [users, setUsers] = useState(null);
@@ -20,15 +21,10 @@ export default function About() {
 		});
 
 		setLoading(true);
-		fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`, {
-			method: "GET",
-			headers: {
-				'Access-Control-Allow-Origin': '*'
-			},
-		})
-			.then((res) => res.json())
+		axios
+			.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`)
 			.then((data) => {
-				setUsers(data);
+				setUsers(data.data);
 				setLoading(false);
 			});
 	}, []);
