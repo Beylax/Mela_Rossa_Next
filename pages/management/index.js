@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 export default function Management() {
+	const { data: session, status } = useSession();
+
 	return (
 		<div className="Management p-5">
 			<div className="flex justify-center items-center">
@@ -16,30 +19,30 @@ export default function Management() {
 			<form className="flex flex-col md:flex-row flex-wrap">
 				<div className="w-full md:w-1/2 md:pr-2">
 					<div className="text-2xl font-bold my-3">
-						Soprannome
+						Surname
 					</div>
 					<input
 						className="w-full"
 						type="text"
-						placeholder="Cacio"
+						placeholder={session.user.Surname}
 					/>
 					<div className="text-2xl font-bold my-3">Nome</div>
 					<input
 						className="w-full"
 						type="text"
-						placeholder="Giacomo"
+						placeholder={session.user.Firstname}
 					/>
 					<div className="text-2xl font-bold my-3">Cognome</div>
 					<input
 						className="w-full"
 						type="text"
-						placeholder="Caciotta"
+						placeholder={session.user.Lastname}
 					/>
 					<div className="text-2xl font-bold my-3">Telefono</div>
 					<input
 						className="w-full"
 						type="text"
-						placeholder="3934852348"
+						placeholder={session.user.Telephone}
 					/>
 				</div>
 				<div className="w-full md:w-1/2 md:pl-2">
@@ -47,13 +50,18 @@ export default function Management() {
 					<input
 						className="w-full"
 						type="text"
-						placeholder="admin"
+						placeholder={session.user.Username}
 					/>
 					<div className="text-2xl font-bold my-3">Email</div>
 					<input
 						className="w-full"
 						type="mail"
-						placeholder="giacomo.caciotta@gmail.com"
+						placeholder={session.user.Email}
+					/>
+					<div className="text-2xl font-bold my-3">Password</div>
+					<input
+						className="w-full"
+						type="password"
 					/>
 					<div className="text-2xl font-bold my-3">
 						Descrizione
@@ -61,7 +69,7 @@ export default function Management() {
 					<input
 						className="w-full"
 						type="text"
-						placeholder="Ciao! Sono Giacomo Caciotta, per gli amici Cacio"
+						placeholder={session.user.Description}
 					/>
 				</div>
 				<button
