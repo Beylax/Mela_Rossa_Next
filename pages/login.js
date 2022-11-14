@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/router';
-import { signIn } from 'next-auth/react'
+import { signIn } from 'next-auth/react';
+import Loading from "../components/loading";
 
 export default function Login() {
+	const [isLoading, setLoading] = useState(false);
 	const [email, setEmail] = useState();
 	const [pwd, setPwd] = useState();
 
@@ -11,6 +13,10 @@ export default function Login() {
 	var md5 = require("md5");
 	let router = useRouter();
 
+	if (isLoading) { 
+		return <Loading></Loading>;
+	}
+
 	return (
 		<div className="Login text-center text-2xl flex justify-center items-center my-10 md:my-24">
 			<form
@@ -18,6 +24,7 @@ export default function Login() {
 				className="w-full w-11/12 md:w-1/2 py-28"
 				onSubmit={(event) => {
 					event.preventDefault();
+					setLoading(true);
 
 					signIn('credentials', {
 						email: email,
@@ -27,6 +34,7 @@ export default function Login() {
 						if (res.status === 401) {
 							//oppure lanciare un toaster
 							setError(res.error);
+							setLoading(false);
 						}
 
 						if (res.status === 200) {

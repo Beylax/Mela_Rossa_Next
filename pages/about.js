@@ -21,12 +21,10 @@ export default function About() {
 		});
 
 		setLoading(true);
-		axios
-			.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`)
-			.then((data) => {
-				setUsers(data.data);
-				setLoading(false);
-			});
+		axios.get(`/api/users`).then((data) => {
+			setUsers(data.data);
+			setLoading(false);
+		});
 	}, []);
 
 	if (isLoading) {

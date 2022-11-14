@@ -1,10 +1,13 @@
-module.exports = {
-	async rewrites() {
-	  return [
-		{
-		  source: '/api/users',
-		  destination: 'http://localhost:3000/users'
-		}
-	  ]
-	}
-}
+module.exports = () => {
+	const rewrites = () => {
+		return [
+			{
+				source: "/api/users",
+				destination: `${process.env.NEXT_PUBLIC_BASE_URL}/users`,
+			},
+		];
+	};
+	return {
+		rewrites,
+	};
+};
