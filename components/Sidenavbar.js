@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
+	const { data: session, status } = useSession();
+
 	return (
 		<nav className="Sidenavbar basis-1/6 z-10">
 			<div id="sidenav_container" className="sidenav-container">
@@ -50,14 +52,20 @@ export default function Navbar() {
 				</div>
 				<div className="hidden md:block text-white text-center text-xl my-5 uppercase font-bold">
 					Benvenuto<br></br>
-					Giacomo!
+					{ session.user.Surname }!
 				</div>
 				<div className="sidenav-item-container">
-					<div className="sidenav-item">
-						<Link href="/management/users">
-							<a className="nav-link">UTENTI</a>
-						</Link>
-					</div>
+					{
+						session.user.role === 0 ? 
+						<div className="sidenav-item">
+							<Link href="/management/users">
+								<a className="nav-link">UTENTI</a>
+							</Link>
+							</div> :
+						<div className="sidenav-item">
+								
+						</div>
+					}
 					<div className="sidenav-item">
 						<Link href="/management/summer_centers">
 							<a className="nav-link">CENTRI ESTIVI</a>

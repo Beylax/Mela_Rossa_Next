@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react";
 export default function Layout({ children }) {
 	let router = useRouter();
 
-	const { status } = useSession();   
+	const { status } = useSession();
 	
 	useEffect(() => {
 		//Check the active link
@@ -25,7 +25,6 @@ export default function Layout({ children }) {
 	});
 
 	if (router.pathname.includes("/management")) { 
-		console.log(status);
 		if (status === "unauthenticated") {
 			router.replace("/api/auth/signin");
 		}
