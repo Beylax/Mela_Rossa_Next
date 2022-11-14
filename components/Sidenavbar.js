@@ -56,7 +56,7 @@ export default function Navbar() {
 				</div>
 				<div className="sidenav-item-container">
 					{
-						session.user.role === 0 ? 
+						session.user.Role === 0 ? 
 						<div className="sidenav-item">
 							<Link href="/management/users">
 								<a className="nav-link">UTENTI</a>
