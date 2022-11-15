@@ -23,11 +23,11 @@ export default function Navbar() {
 					<Link href="/">
 						<a className="nav-link">HOME</a>
 					</Link>
-					<Link href="/about">
-						<a className="nav-link">CHI SIAMO</a>
+					<Link href="/info">
+						<a className="nav-link">INFO</a>
 					</Link>
-					<Link href="/contact">
-						<a className="nav-link">CONTATTI</a>
+					<Link href="/signin">
+						<a className="nav-link">ISCRIZIONE</a>
 					</Link>
 					<Link href="/api/auth/signin">
 						<a className="btn">ACCEDI</a>
