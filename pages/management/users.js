@@ -53,6 +53,8 @@ export default function Users() {
                                 </div>
                                 <div className="w-full md:w-1/2 md:pl-2">
                                     <div className="text-2xl font-bold my-3">Username</div>
+                                    <input className="w-full" type="text" placeholder={user.Username} />
+                                    <div className="text-2xl font-bold my-3">Role</div>
                                     <input className="w-full" type="text" placeholder={user.Role}/>
                                     <div className="text-2xl font-bold my-3">Email</div>
                                     <input className="w-full" type="mail" placeholder={user.Email}/>

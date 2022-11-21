@@ -21,10 +21,12 @@ export default function Home() {
 					<div className="text-5xl md:text-7xl text-red my-5 mx-auto whitespace-nowrap">MELA ROSSA</div>
 					<div className="text-xl md:text-2xl text-red font-normal mx-10">Centri estivi - Doposcuola - Giochi - Uscite - Sport</div>
 					<div className="h-16 flex w-11/12 lg:w-1/2 my-5">
-						<Link href="/contact">
+						<Link href="#contact">
 							<a className="btn w-1/2 mr-2">CONTATTACI</a>
 						</Link>
-						<button type="button" className="btn w-1/2 ml-2">ISCRIVITI</button>
+						<Link href="/signin">
+							<a className="btn w-1/2 mr-2">ISCRIVITI</a>
+						</Link>
 					</div>
 				</div>
 				<div className="md:w-1/2 flex justify-center mt-2">

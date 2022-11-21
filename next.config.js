@@ -1,13 +1,6 @@
-module.exports = () => {
-	const rewrites = () => {
-		return [
-			{
-				source: "/api/users",
-				destination: `${process.env.NEXT_PUBLIC_BASE_URL}/users`,
-			},
-		];
-	};
-	return {
-		rewrites,
-	};
-};
+/**@type {import('next').NextConfig}**/
+ const nextConfig = {
+	/* config options here */
+  }
+  
+  module.exports = nextConfig

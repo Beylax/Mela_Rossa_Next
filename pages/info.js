@@ -13,14 +13,6 @@ export default function Info() {
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		window.addEventListener("resize", () => {
-			if (window.innerWidth <= 1024) {
-				setSlidesPerView(1);
-			} else {
-				setSlidesPerView(3);
-			}
-		});
-
 		setLoading(true);
 		axios.get(`/api/users`)
 			.then((data) => {
@@ -32,6 +24,14 @@ export default function Info() {
 				setLoading(false);
 			});
 	}, []);
+
+	window.addEventListener("resize", () => {
+		if (window.innerWidth <= 1024) {
+			setSlidesPerView(1);
+		} else {
+			setSlidesPerView(3);
+		}
+	});
 
 	if (isLoading) {
 		return <Loading></Loading>;

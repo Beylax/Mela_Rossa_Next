@@ -51,7 +51,7 @@ export default function Navbar() {
 					</Link>
 				</div>
 				<div className="hidden md:block text-white text-center text-xl my-5 uppercase font-bold">
-					Benvenuto<br></br>
+					Ciao<br></br>
 					{ session.user.Surname }!
 				</div>
 				<div className="sidenav-item-container">
