@@ -131,7 +131,7 @@ input:focus {
 	transition: var(--transition-linear);
 }
 
-#nav_container:has(input:checked) > div {
+#nav_container.closed > div {
 	max-height: 0;
 	margin: 0;
 	overflow: hidden;
@@ -161,8 +161,7 @@ input:focus {
 /*Home*/
 
 #hero_img {
-	width: 100%;
-	height: auto;
+	aspect-ratio: 512/425;
 }
 
 /*Footer*/

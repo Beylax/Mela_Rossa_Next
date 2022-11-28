@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import dbconn from "../dbconnection";
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<section className="flex flex-col md:flex-row justify-center items-center my-20 text-center">
+			<section className="flex flex-col md:flex-row justify-center my-10 md:my-20 text-center">
 				<div className="md:w-1/2 font-bold italic flex flex-col justify-center items-center">
 					<div className="text-5xl md:text-7xl mx-auto">Entra nella</div>
 					<div className="text-5xl md:text-7xl mx-auto">famiglia della</div>
@@ -29,8 +30,8 @@ export default function Home() {
 						</Link>
 					</div>
 				</div>
-				<div className="md:w-1/2 flex justify-center mt-2">
-					<img src="/images/logo_mela_rossa_cropped.png" alt="logo"/>
+				<div id="hero_img" className="md:w-1/2 md:aspect-auto mt-2 md:mt-0 relative">
+					<Image src="/images/logo_mela_rossa_cropped.png" alt="logo" layout="fill"/>
 				</div>
 			</section>
 		</div>
