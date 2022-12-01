@@ -12,6 +12,11 @@ export default function Layout({ children }) {
 	const { status } = useSession();
 	
 	useEffect(() => {
+		if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+			document.documentElement.classList.add('dark')
+		} else {
+			document.documentElement.classList.remove('dark')
+		}
 		//Check the active link
 		let links = document.getElementsByClassName("nav-link");
 		for (let i = 0; i < links.length; i++){
@@ -44,7 +49,7 @@ export default function Layout({ children }) {
 	return (
 		<>
 			<Navbar />
-			<main className="relative">{children}</main>
+			<main className="relative bg-white">{children}</main>
 			<Footer />
 		</>
 	);

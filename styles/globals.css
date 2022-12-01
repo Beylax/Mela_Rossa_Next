@@ -212,7 +212,7 @@ input:focus {
 	scale: 1.2;
 }
 
-.user-card > img{
+.user-card .bg-image{
 	z-index: -1;
 }
 

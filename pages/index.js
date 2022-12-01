@@ -30,8 +30,10 @@ export default function Home() {
 						</Link>
 					</div>
 				</div>
-				<div id="hero_img" className="md:w-1/2 md:aspect-auto mt-2 md:mt-0 relative">
-					<Image src="/images/logo_mela_rossa_cropped.png" alt="logo" layout="fill"/>
+				<div className="md:w-1/2 md:aspect-auto mt-2 md:mt-0">
+					<div id="hero_img" className="w-10/12 mx-auto relative">
+						<Image src="/images/logo_mela_rossa_cropped.png" alt="logo" layout="fill"/>
+					</div>
 				</div>
 			</section>
 		</div>

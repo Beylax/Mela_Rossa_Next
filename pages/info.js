@@ -57,10 +57,11 @@ export default function Info() {
 								className="w-full lg:w-auto aspect-square relative"
 							>
 								<div className="user-card pr-5">
-									<img
-										className="absolute top-0"
+									<Image
+										className="bg-image absolute top-0"
 										src="/images/apple-bg.png"
 										alt="logo"
+										layout="fill"
 									/>
 									<div className="user-card-img aspect-square border rounded-full mx-auto bg-white mt-10"></div>
 									<div className="text-2xl mt-5">{user.Surname}</div>
