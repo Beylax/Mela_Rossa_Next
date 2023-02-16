@@ -6,88 +6,82 @@ export default function Navbar() {
 	const { data: session, status } = useSession();
 
 	return (
-		<nav className="Sidenavbar basis-1/6 z-10">
+		<nav
+			id="sidenavbar"
+			className="Sidenavbar fixed bg-red w-4/5 md:w-1/5 data-[status=close]:md:w-[5rem] h-full z-10 peer group"
+			data-status="open"
+		>
 			<div id="sidenav_container" className="sidenav-container">
 				<div className="hidden md:flex justify-end items-center overflow-hidden mr-3">
 					<button
-						className="sidenav-toggle flex justify-center items-center text-white text-4xl"
+						id="sidenav-toggle"
+						className="mt-2 flex justify-center items-center text-white group-data-[status=close]:rotate-180 transition-all"
 						onClick={() => {
-							console.log("clicked");
-							let sidenav =
-								document.getElementsByClassName(
-									"Sidenavbar",
-								)[0];
-							sidenav.classList.toggle("basis-1/6");
-							sidenav.classList.toggle("basis-1/12");
-
-							let main = document.getElementById("sidenav_main");
-							main.classList.toggle("basis-5/6");
-							main.classList.toggle("basis-11/12");
-
-							let btn_toggle =
-								document.getElementsByClassName(
-									"sidenav-toggle",
-								)[0];
-							btn_toggle.classList.toggle("rotate");
-							if (btn_toggle.classList.contains("rotate")) {
-								btn_toggle.innerHTML = "&#8594;";
-							} else {
-								btn_toggle.innerHTML = "&#8592;";
+							const sidenavbar = document.getElementById("sidenavbar");
+							if (sidenavbar.getAttribute("data-status") === "open") {
+								sidenavbar.setAttribute("data-status", "close");
+							}
+							else {
+								sidenavbar.setAttribute("data-status", "open");
 							}
 						}}
 					>
-						&#8592;
+						<Image src="/images/left_arrow.png" width={36} height={36}></Image>
 					</button>
 				</div>
-				<div className="flex items-center justify-center mt-5">
-					<Link href="/management">
-						<Image
-							src="/images/logo_mela_rossa.png"
-							className="logo cursor-pointer"
-							width={60}
-							height={60}
-							alt="La Mela Rossa"
-						/>
-					</Link>
+				<div className="side-user-card relative w-3/4 aspect-square mt-5 mx-auto p-5 bg-white rounded-[10px] shadow-user overflow-hidden">
+					<div className="wave"></div>
+					<div className="w-fit h-1/2 mx-auto">
+						<Link href="/management">
+							<Image
+								src="/images/logo_mela_rossa.png"
+								className="logo cursor-pointer"
+								width={60}
+								height={60}
+								alt="La Mela Rossa"
+							/>
+						</Link>
+					</div>
+					{ session.user.Surname }
 				</div>
-				<div className="hidden md:block text-white text-center text-xl my-5 uppercase font-bold">
-					Ciao<br></br>
-					{ session.user.Surname }!
-				</div>
-				<div className="sidenav-item-container">
+				<div className="sidenav-item-container p-4">
 					{
 						session.user.Role === 0 ? 
 						<div className="sidenav-item">
+							<Image src="/images/user.png" width={36} height={36}></Image>
 							<Link href="/management/users">
-								<a className="nav-link">UTENTI</a>
+								<a className="nav-link group-data-[status=close]:hidden">UTENTI</a>
 							</Link>
-							</div> :
-						<div className="sidenav-item">
-								
-						</div>
+						</div> : null
 					}
 					<div className="sidenav-item">
+						<Image src="/images/sun.png" width={36} height={36}></Image>
 						<Link href="/management/summer_centers">
-							<a className="nav-link">CENTRI ESTIVI</a>
+							<a className="nav-link group-data-[status=close]:hidden">CENTRI ESTIVI</a>
 						</Link>
 					</div>
 					<div className="sidenav-item">
+						<Image src="/images/list.png" width={36} height={36}></Image>
 						<Link href="/management/lists">
-							<a className="nav-link">LISTE</a>
+							<a className="nav-link group-data-[status=close]:hidden">LISTE</a>
 						</Link>
 					</div>
 					<div className="sidenav-item">
+						<Image src="/images/events.png" width={36} height={36}></Image>
 						<Link href="/management/events">
-							<a className="nav-link">EVENTI</a>
+							<a className="nav-link group-data-[status=close]:hidden">EVENTI</a>
 						</Link>
 					</div>
+					<button className="my-5 hidden group-data-[status=close]:block" type="button" onClick={() => signOut()}>
+						<Image src="/images/log_out.png" width={36} height={36}></Image>
+					</button>
+					<button
+						className="btn btn-primary w-11/12 md:w-auto text-xl my-5 uppercase font-bold group-data-[status=close]:hidden"
+						onClick={() => signOut()}
+					>
+						LOGOUT
+					</button>
 				</div>
-				<button
-					className="btn w-11/12 md:w-auto text-xl my-5 mx-auto uppercase font-bold"
-					onClick={() => signOut()}
-				>
-					LOGOUT
-				</button>
 			</div>
 		</nav>
 	);

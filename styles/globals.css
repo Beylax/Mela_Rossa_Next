@@ -1,3 +1,5 @@
+@config "../tailwind.config.js";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,11 +18,8 @@ body {
 	flex-direction: column;
 }
 
-main {
-	position: relative;
-	flex: 1;
-	display: block;
-	overflow-x: hidden;
+.Layout > *:not(.Navbar):not(.Footer){
+	min-height: calc(100vh - 5rem - 5rem);
 }
 
 * {
@@ -28,10 +27,6 @@ main {
 }
 
 :root {
-	--red-color: #c31a2f;
-	--green-color: #1eb514;
-	--green-dark-color: #1a8f11;
-
 	--border-radius: 10px;
 
 	--transition-duration: 0.3s;
@@ -42,10 +37,6 @@ main {
 }
 
 /*Navbar*/
-
-.Navbar {
-	background-color: var(--red-color);
-}
 
 #nav_container > * {
 	transition: var(--transition-linear);
@@ -100,10 +91,6 @@ main {
 
 /*Footer*/
 
-.Footer {
-	background-color: var(--red-color);
-}
-
 /*Login*/
 
 .Login {
@@ -129,6 +116,13 @@ main {
 
 #login_form > * {
 	display: block;
+}
+
+@media screen and (min-width: 768px){
+	.Login{
+		/* 100vh - header - footer */
+		height: calc(100vh - 5rem - 5rem);
+	}
 }
 
 /*Info*/
@@ -166,7 +160,6 @@ main {
 }
 
 .Sidenavbar{
-	background-color: var(--red-color);
 	transition: var(--transition-linear);
 }
 
@@ -179,11 +172,40 @@ main {
 }
 
 .sidenav-item{
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 	color: white;
 	font-size:large;
 	text-align: center;
-	padding: 1rem;
+	padding: 1rem 0;
 }
+.Sidenavbar[data-status=close] .sidenav-item{
+	justify-content: center;
+}
+
+.Sidenavbar .side-user-card{
+	background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+}
+
+.wave {
+	width: 1000px;
+	height: 1025px;
+	position: absolute;
+	top: -160%;
+	left: 50%;
+	margin-left: -500px;
+	margin-top: -470px;
+	border-radius: 70%;
+	background: rgba(255, 255, 255, .75);
+	animation: wave 15s infinite linear;
+}
+
+@keyframes wave {
+	from { transform: rotate(0deg);}
+	from { transform: rotate(360deg);}
+}
+
 
 /*navbar links hover effect*/
 .Sidenavbar .nav-link {
@@ -207,12 +229,6 @@ main {
 }
 
 /*Management user*/
-
-.user{
-	border-radius: 20px;
-	box-shadow: 0 0 10px var(--red-color);
-	-webkit-box-shadow: 0 0 10px var(--red-color);
-}
 
 @media screen and (max-width: 1024px) {
 	.swiper, .swiper-wrapper{
@@ -250,8 +266,6 @@ main {
 }
 
 .btn {
-	background-color: var(--green-color);
-	color: white;
 	font-weight: bold;
 	font-style: normal;
 
@@ -266,9 +280,26 @@ main {
 	align-items: center;
 }
 
-.btn:hover,
-.btn:focus {
-	background-color: var(--green-dark-color);
+.btn-primary {
+	background-color: theme(colors.green);
+	color: white;
+}
+
+.btn-secondary {
+	background-color: transparent;
+	color: theme(colors.green);
+	border: 1px solid theme(colors.green);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+	background-color: theme(colors.dark_green);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+	background-color: theme(colors.green);
+	color: white;
 }
 
 .btn.disabled{
@@ -276,9 +307,17 @@ main {
 	opacity: .5;
 }
 
-.btn.disabled:hover,
-.btn.disabled:focus {
-	background-color: var(--green-color);
+.btn-primary.disabled:hover,
+.btn-primary.disabled:focus {
+	background-color: theme(colors.green);
+	color: white;
+}
+
+.btn-secondary.disabled:hover,
+.btn-secondary.disabled:focus {
+	background-color: transparent;
+	color: theme(colors.green);
+	border: 1px solid theme(colors.green);
 }
 
 input {
@@ -288,13 +327,5 @@ input {
 }
 
 input:focus {
-	outline: 1px solid var(--green-color);
-}
-
-.text-red {
-	color: var(--red-color);
-}
-
-.hidden{
-	display: none;
+	outline: 1px solid theme(colors.green);
 }

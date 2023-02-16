@@ -17,7 +17,7 @@ export default function ErrorPage() {
             </Link>
             <div className="mx-auto my-5 text-center font-bold">Pagina non esistente</div>
             <Link href="/">
-                <a className="btn items-center flex justify-center w-1/3 m-auto">TORNA ALLA HOME</a>
+                <a className="btn btn-primary items-center flex justify-center w-1/3 m-auto">TORNA ALLA HOME</a>
             </Link>
 		</div>
 	);

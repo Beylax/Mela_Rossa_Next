@@ -18,7 +18,7 @@ export default function Login() {
 	}
 
 	return (
-		<div className="Login text-center text-2xl flex justify-center items-center my-10 md:my-24">
+		<div className="Login text-center text-2xl flex justify-center items-center my-10 md:my-0">
 			<form
 				id="login_form"
 				className="w-full w-11/12 md:w-1/2 py-28"
@@ -63,7 +63,7 @@ export default function Login() {
 					onChange={(event) => setPwd(md5(event.target.value))}
 					required
 				/>
-				<button type="submit" className="btn mx-auto">
+				<button type="submit" className="btn btn-primary mx-auto">
 					ACCEDI
 				</button>
 				<div className="text-red text-center">{error}</div>

@@ -36,9 +36,9 @@ export default function Layout({ children }) {
 
 		if (status === "authenticated") {
 			return (
-				<div className="flex min-h-screen">
+				<div className="min-h-screen">
 					<Sidenavbar/>
-					<main id="sidenav_main" className="relative basis-5/6">{children}</main>
+					<main id="sidenav_main" className="relative md:ml-[20%] peer-data-[status=close]:ml-[5rem] peer">{children}</main>
 				</div>
 			);
 		}

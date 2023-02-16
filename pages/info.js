@@ -8,18 +8,10 @@ import axios from "axios";
 
 export default function Info() {
 	const [users, setUsers] = useState([]);
-	const [slidesPerView, setSlidesPerView] = useState(3);
 	const [isLoading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		window.addEventListener("resize", () => {
-			if (window.innerWidth <= 1024) {
-				setSlidesPerView(1);
-			} else {
-				setSlidesPerView(3);
-			}
-		});
 		setLoading(true);
 		axios.get(`/api/users`)
 			.then((data) => {
@@ -37,7 +29,7 @@ export default function Info() {
 	}
 
 	return (
-		<div className="Info w-full h-full">
+		<div className="Info w-full h-full overflow-x-hidden">
 			
 			<div className="text-5xl font-bold text-center mt-10">
 				I NOSTRI EDUCATORI
@@ -46,7 +38,7 @@ export default function Info() {
 				(!error) ? 
 					<Swiper
 						spaceBetween={50}
-						slidesPerView={slidesPerView}
+						slidesPerView={"auto"}
 						centeredSlides={true}
 						loop={true}
 						className="w-2/3 lg:w-full"
@@ -54,7 +46,7 @@ export default function Info() {
 						{users.map((user, i) => (
 							<SwiperSlide
 								key={i}
-								className="w-full lg:w-auto aspect-square relative"
+								className="md:!w-1/2 lg:!w-1/4 xl:!w-1/6 aspect-square relative"
 							>
 								<div className="user-card pr-5">
 									<Image
@@ -63,17 +55,19 @@ export default function Info() {
 										alt="logo"
 										layout="fill"
 									/>
-									<div className="user-card-img aspect-square border rounded-full mx-auto bg-white mt-10"></div>
-									<div className="text-2xl mt-5">{user.Surname}</div>
-									<div className="lg:my-5">
+									<div className="user-card-img aspect-square border rounded-full mx-auto bg-white mt-10">
+										{/* TODO Insert user image */}
+									</div>
+									<div className="text-xl mt-5 uppercase">{user.Surname}</div>
+									<div className="text-l lg:my-5">
 										{user.Firstname} {user.Lastname}
 									</div>
 									{/* <div>
 										{user.Telephone}
 									</div> */}
-									<div className="hidden lg:block w-5/6 mx-auto">
+									{/* <div className="hidden lg:block w-5/6 mx-auto">
 										{user.Description}
-									</div>
+									</div> */}
 								</div>
 							</SwiperSlide>
 						))}

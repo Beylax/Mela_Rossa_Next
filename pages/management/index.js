@@ -73,7 +73,7 @@ export default function Management() {
 					/>
 				</div>
 				<button
-					className="btn w-1/7 mt-5 mx-auto disabled"
+					className="btn btn-primary w-1/7 mt-5 mx-auto disabled"
 					type="submit"
 					disabled
 				>

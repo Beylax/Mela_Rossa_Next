@@ -20,8 +20,8 @@ export default function Users() {
     }
 
     return (
-        <div className="Users">
-            <div className="italic text-center">
+        <div className="Users p-2 md:p-6">
+            {/* <div className="italic text-center">
                 <h6>Admin = 0</h6>
                 <h6>Educatore = 1</h6>
                 <h6>Aiutante = 2</h6>
@@ -31,7 +31,6 @@ export default function Users() {
                     users.map((user, i) => (
                         <div key={i} className="user w-full md:w-5/12 p-5">
                             <div className="flex justify-center items-center">
-                                {/* Selettore di immagine anche da file */}
                                 <Image
                                     src="/images/logo_mela_rossa.png"
                                     className="logo"
@@ -61,8 +60,28 @@ export default function Users() {
                                     <div className="text-2xl font-bold my-3">Descrizione</div>
                                     <input className="w-full" type="text" placeholder={user.Description}/>
                                 </div>
-                                <button className="btn w-1/7 mt-5 mx-auto disabled" type="submit" disabled>APPLICA CAMBIAMENTI</button>
+                                <button className="btn btn-primary w-1/7 mt-5 mx-auto disabled" type="submit" disabled>APPLICA CAMBIAMENTI</button>
                             </form>
+                        </div>
+                    ))
+                }
+            </div> */}
+
+            <h1 className="text-xl font-bold mb-6">User Management</h1>
+            <div className="grid grid-cols-3 gap-4 items-center justify-center">
+                {
+                    users.map((user, i) => (
+                        <div key={i} className="user border rounded-[10px] p-5">
+                            <div className="flex justify-center items-center">
+                                <Image
+                                    src="/images/logo_mela_rossa.png"
+                                    className="logo"
+                                    width={100}
+                                    height={100}
+                                    alt="La Mela Rossa"
+                                />
+                            </div>
+                            
                         </div>
                     ))
                 }
