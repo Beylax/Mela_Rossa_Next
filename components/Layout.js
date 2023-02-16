@@ -47,10 +47,10 @@ export default function Layout({ children }) {
 	}
 
 	return (
-		<>
+		<div className="Layout flex flex-col">
 			<Navbar />
-			<main className="relative bg-white">{children}</main>
+			{children}
 			<Footer />
-		</>
+		</div>
 	);
 }

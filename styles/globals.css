@@ -41,79 +41,6 @@ main {
 	--transition-slow: all var(--transition-duration-slow) ease-in-out;
 }
 
-/*General styles*/
-
-/*Scrollbar*/
-/* width */
-::-webkit-scrollbar {
-	width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-	background: gray;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-	background: var(--green-dark-color);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-	background: var(--green-color);
-}
-
-.btn {
-	background-color: var(--green-color);
-	color: white;
-	font-weight: bold;
-	font-style: normal;
-
-	padding: 0.5rem 1rem;
-
-	border-radius: var(--border-radius);
-
-	transition: var(--transition-linear);
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.btn:hover,
-.btn:focus {
-	background-color: var(--green-dark-color);
-}
-
-.btn.disabled{
-	cursor: not-allowed;
-	opacity: .5;
-}
-
-.btn.disabled:hover,
-.btn.disabled:focus {
-	background-color: var(--green-color);
-}
-
-input {
-	outline: 1px solid black;
-	border-radius: var(--border-radius);
-	padding: 0.3rem;
-}
-
-input:focus {
-	outline: 1px solid var(--green-color);
-}
-
-.text-red {
-	color: var(--red-color);
-}
-
-.hidden{
-	display: none;
-}
-
 /*Navbar*/
 
 .Navbar {
@@ -162,6 +89,13 @@ input:focus {
 
 #hero_img {
 	aspect-ratio: 512/425;
+}
+
+@media screen and (min-width: 768px){
+	.Home{
+		/* 100vh - header - footer */
+		height: calc(100vh - 5rem - 5rem);
+	}
 }
 
 /*Footer*/
@@ -290,4 +224,77 @@ input:focus {
 	#nav_container > div{
 		max-height: 1000px !important;
 	}
+}
+
+/*General styles*/
+
+/*Scrollbar*/
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: gray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--green-dark-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: var(--green-color);
+}
+
+.btn {
+	background-color: var(--green-color);
+	color: white;
+	font-weight: bold;
+	font-style: normal;
+
+	padding: 0.5rem 1rem;
+
+	border-radius: var(--border-radius);
+
+	transition: var(--transition-linear);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn:hover,
+.btn:focus {
+	background-color: var(--green-dark-color);
+}
+
+.btn.disabled{
+	cursor: not-allowed;
+	opacity: .5;
+}
+
+.btn.disabled:hover,
+.btn.disabled:focus {
+	background-color: var(--green-color);
+}
+
+input {
+	outline: 1px solid black;
+	border-radius: var(--border-radius);
+	padding: 0.3rem;
+}
+
+input:focus {
+	outline: 1px solid var(--green-color);
+}
+
+.text-red {
+	color: var(--red-color);
+}
+
+.hidden{
+	display: none;
 }
