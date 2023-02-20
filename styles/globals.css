@@ -179,13 +179,10 @@ body {
 	font-size:large;
 	text-align: center;
 	padding: 1rem 0;
+	transition: all .3s linear;
 }
 .Sidenavbar[data-status=close] .sidenav-item{
 	justify-content: center;
-}
-
-.Sidenavbar .side-user-card{
-	background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
 
 .wave {
@@ -242,27 +239,18 @@ body {
 	}
 }
 
+/* Management users */
+
+.Users .user-info.open{
+	transform: translateX(0%);
+}
+
 /*General styles*/
 
 /*Scrollbar*/
 /* width */
 ::-webkit-scrollbar {
 	width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-	background: gray;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-	background: var(--green-dark-color);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-	background: var(--green-color);
 }
 
 .btn {

@@ -8,11 +8,11 @@ export default function Navbar() {
 	return (
 		<nav
 			id="sidenavbar"
-			className="Sidenavbar fixed bg-red w-4/5 md:w-1/5 data-[status=close]:md:w-[5rem] h-full z-10 peer group"
+			className="Sidenavbar fixed bg-red w-4/5 md:w-1/5 h-screen data-[status=close]:w-[5rem] h-full z-10 peer group"
 			data-status="open"
 		>
-			<div id="sidenav_container" className="sidenav-container">
-				<div className="hidden md:flex justify-end items-center overflow-hidden mr-3">
+			<div id="sidenav_container" className="sidenav-container h-full">
+				<div className="flex justify-end items-center overflow-hidden mr-3">
 					<button
 						id="sidenav-toggle"
 						className="mt-2 flex justify-center items-center text-white group-data-[status=close]:rotate-180 transition-all"
@@ -29,20 +29,10 @@ export default function Navbar() {
 						<Image src="/images/left_arrow.png" width={36} height={36} alt="toggle"></Image>
 					</button>
 				</div>
-				<div className="side-user-card relative w-3/4 aspect-square mt-5 mx-auto p-5 bg-white rounded-[10px] shadow-user overflow-hidden">
-					<div className="wave"></div>
-					<div className="w-fit h-1/2 mx-auto">
-						<Link href="/management">
-							<Image
-								src="/images/logo_mela_rossa.png"
-								className="logo cursor-pointer"
-								width={60}
-								height={60}
-								alt="La Mela Rossa"
-							/>
-						</Link>
-					</div>
-					{ session.user.Surname }
+				<div className="flex items-center justify-center cursor-pointer mt-4">
+					<Link href="/management">
+						<Image src="/images/logo_mela_rossa.png" width={48} height={48} alt="summer_centers"></Image>
+					</Link>
 				</div>
 				<div className="sidenav-item-container p-4">
 					{
