@@ -26,7 +26,7 @@ export default function Navbar() {
 							}
 						}}
 					>
-						<Image src="/images/left_arrow.png" width={36} height={36}></Image>
+						<Image src="/images/left_arrow.png" width={36} height={36} alt="toggle"></Image>
 					</button>
 				</div>
 				<div className="side-user-card relative w-3/4 aspect-square mt-5 mx-auto p-5 bg-white rounded-[10px] shadow-user overflow-hidden">
@@ -48,32 +48,32 @@ export default function Navbar() {
 					{
 						session.user.Role === 0 ? 
 						<div className="sidenav-item">
-							<Image src="/images/user.png" width={36} height={36}></Image>
+							<Image src="/images/user.png" width={36} height={36} alt="user"></Image>
 							<Link href="/management/users">
 								<a className="nav-link group-data-[status=close]:hidden">UTENTI</a>
 							</Link>
 						</div> : null
 					}
 					<div className="sidenav-item">
-						<Image src="/images/sun.png" width={36} height={36}></Image>
+						<Image src="/images/sun.png" width={36} height={36} alt="summer_centers"></Image>
 						<Link href="/management/summer_centers">
 							<a className="nav-link group-data-[status=close]:hidden">CENTRI ESTIVI</a>
 						</Link>
 					</div>
 					<div className="sidenav-item">
-						<Image src="/images/list.png" width={36} height={36}></Image>
+						<Image src="/images/list.png" width={36} height={36} alt="lists"></Image>
 						<Link href="/management/lists">
 							<a className="nav-link group-data-[status=close]:hidden">LISTE</a>
 						</Link>
 					</div>
 					<div className="sidenav-item">
-						<Image src="/images/events.png" width={36} height={36}></Image>
+						<Image src="/images/events.png" width={36} height={36} alt="events"></Image>
 						<Link href="/management/events">
 							<a className="nav-link group-data-[status=close]:hidden">EVENTI</a>
 						</Link>
 					</div>
 					<button className="my-5 hidden group-data-[status=close]:block" type="button" onClick={() => signOut()}>
-						<Image src="/images/log_out.png" width={36} height={36}></Image>
+						<Image src="/images/log_out.png" width={36} height={36} alt="log_out"></Image>
 					</button>
 					<button
 						className="btn btn-primary w-11/12 md:w-auto text-xl my-5 uppercase font-bold group-data-[status=close]:hidden"

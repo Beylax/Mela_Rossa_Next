@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/react';
-import Loading from "../components/loading";
+import Loading from "../components/Loader";
 
 export default function Login() {
 	const [isLoading, setLoading] = useState(false);

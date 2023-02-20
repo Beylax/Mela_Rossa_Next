@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Loader() {
 	return (
-		<div className="Loader position-fixed w-screen h-screen flex justify-center items-center bg-white animate-bounce">
+		<div className="Loader fixed w-full h-screen flex justify-center items-center bg-white animate-bounce opacity-90 z-50">
 			<Image
 				src="/images/logo_mela_rossa.png"
 				className="logo"
