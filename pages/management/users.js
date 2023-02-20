@@ -1,6 +1,6 @@
 import Image from "next/image";
 import axios from "axios";
-import Loading from "../../components/loading";
+import Loading from "../../components/Loader";
 import { useEffect, useState } from "react";
 
 export default function Users() {
