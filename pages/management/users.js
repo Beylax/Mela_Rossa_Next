@@ -9,25 +9,24 @@ export default function Users() {
 
 	useEffect(() => {
 		setLoading(true);
-		axios.get(`/api/users`).then((data) => {
-			setUsers(data.data);
-			setLoading(false);
-        }).catch(err => {
-            setLoading(false);
-        });
+		axios
+			.get(`/api/users`)
+			.then((data) => {
+				setUsers(data.data);
+				setLoading(false);
+			})
+			.catch((err) => {
+				setLoading(false);
+			});
 	}, []);
 
 	if (isLoading) {
 		return <Loading></Loading>;
-    }
-    
-    if (users?.length === 0) {
-        return (
-            <div className="Users">
-                Users not available
-            </div>
-        )
-    }
+	}
+
+	if (users?.length === 0) {
+		return <div className="Users">Users not available</div>;
+	}
 
 	return (
 		<div className="Users relative p-2 md:p-6">
@@ -77,24 +76,29 @@ export default function Users() {
                 }
             </div> */}
 
-			<h1 className="text-xl font-bold mb-6">User Management</h1>
+			<h1 className="text-4xl font-bold mb-6">User Management</h1>
 			<div className="grid grid-cols-3 gap-4 items-center justify-center">
 				{users.map((user, i) => (
 					<div
 						key={`${i}-user`}
 						className="relative p-5 border-2 rounded-[10px] cursor-pointer hover:border-green transition-all"
-                        data-target={user.Surname}
-                        onClick={(e) => {
-                            const users_info = document.getElementsByClassName("user-info"); 
-                            for (let i = 0; i < users_info.length; i++){
-                                if (users_info[i].id === e.currentTarget.getAttribute("data-target")) {
-                                    document.getElementById(users_info[i].id).classList.toggle("open");
-                                }
-                                else {
-                                    users_info[i].classList.remove("open");
-                                }
-                            }
-                        }}
+						data-target={user.Surname}
+						onClick={(e) => {
+							const users_info =
+								document.getElementsByClassName("user-info");
+							for (let i = 0; i < users_info.length; i++) {
+								if (
+									users_info[i].id ===
+									e.currentTarget.getAttribute("data-target")
+								) {
+									document
+										.getElementById(users_info[i].id)
+										.classList.toggle("open");
+								} else {
+									users_info[i].classList.remove("open");
+								}
+							}
+						}}
 					>
 						<input
 							id={`${i}-check`}
@@ -127,93 +131,90 @@ export default function Users() {
 				<div
 					id={user.Surname}
 					key={`${i}-user-info`}
-					className="user-info fixed w-full md:w-1/2 h-screen top-0 right-0 flex items-center justify-center p-5 translate-x-full transition-all z-10"
-                >
-					<div className="user-card bg-white p-5 border-2 rounded-[10px]">
-						<div className="flex justify-center items-center">
-							{/* Selettore di immagine anche da file */}
-							<Image
-								src="/images/logo_mela_rossa.png"
-								className="logo"
-								width={200}
-								height={200}
-								alt="La Mela Rossa"
+					className="user-info fixed w-full md:w-1/3 top-4 bottom-4 right-4 p-5 translate-x-[110%] bg-white border-2 rounded-[10px] transition-all z-10"
+				>
+					<div className="fixed top-6 right-6 font-bold cursor-pointer" onClick={() => {
+						document.getElementById(user.Surname).classList.remove("open");
+					}}>&#10005;</div>
+					<div className="flex justify-center items-center">
+						{/* Selettore di immagine anche da file */}
+						<Image
+							src="/images/logo_mela_rossa.png"
+							className="logo"
+							width={200}
+							height={200}
+							alt="La Mela Rossa"
+						/>
+					</div>
+					<form className="flex flex-col md:flex-row flex-wrap">
+						<div className="w-full md:w-1/2 md:pr-2">
+							<div className="text-2xl font-bold my-3">
+								Surname
+							</div>
+							<input
+								className="w-full"
+								type="text"
+								placeholder={user.Surname}
+							/>
+							<div className="text-2xl font-bold my-3">Nome</div>
+							<input
+								className="w-full"
+								type="text"
+								placeholder={user.Firstname}
+							/>
+							<div className="text-2xl font-bold my-3">
+								Cognome
+							</div>
+							<input
+								className="w-full"
+								type="text"
+								placeholder={user.Lastname}
+							/>
+							<div className="text-2xl font-bold my-3">
+								Telefono
+							</div>
+							<input
+								className="w-full"
+								type="text"
+								placeholder={user.Telephone}
 							/>
 						</div>
-						<form className="flex flex-col md:flex-row flex-wrap">
-							<div className="w-full md:w-1/2 md:pr-2">
-								<div className="text-2xl font-bold my-3">
-									Surname
-								</div>
-								<input
-									className="w-full"
-									type="text"
-									placeholder={user.Surname}
-								/>
-								<div className="text-2xl font-bold my-3">
-									Nome
-								</div>
-								<input
-									className="w-full"
-									type="text"
-									placeholder={user.Firstname}
-								/>
-								<div className="text-2xl font-bold my-3">
-									Cognome
-								</div>
-								<input
-									className="w-full"
-									type="text"
-									placeholder={user.Lastname}
-								/>
-								<div className="text-2xl font-bold my-3">
-									Telefono
-								</div>
-								<input
-									className="w-full"
-									type="text"
-									placeholder={user.Telephone}
-								/>
+						<div className="w-full md:w-1/2 md:pl-2">
+							<div className="text-2xl font-bold my-3">
+								Username
 							</div>
-							<div className="w-full md:w-1/2 md:pl-2">
-								<div className="text-2xl font-bold my-3">
-									Username
-								</div>
-								<input
-									className="w-full"
-									type="text"
-									placeholder={user.Username}
-								/>
-								<div className="text-2xl font-bold my-3">
-									Email
-								</div>
-								<input
-									className="w-full"
-									type="mail"
-									placeholder={user.Email}
-								/>
-								<div className="text-2xl font-bold my-3">
-									Password
-								</div>
-								<input className="w-full" type="password" />
-								<div className="text-2xl font-bold my-3">
-									Descrizione
-								</div>
-								<input
-									className="w-full"
-									type="text"
-									placeholder={user.Description}
-								/>
+							<input
+								className="w-full"
+								type="text"
+								placeholder={user.Username}
+							/>
+							<div className="text-2xl font-bold my-3">Email</div>
+							<input
+								className="w-full"
+								type="mail"
+								placeholder={user.Email}
+							/>
+							<div className="text-2xl font-bold my-3">
+								Password
 							</div>
-							<button
-								className="btn btn-primary w-1/7 mt-5 mx-auto disabled"
-								type="submit"
-								disabled
-							>
-								APPLICA CAMBIAMENTI
-							</button>
-						</form>
-					</div>
+							<input className="w-full" type="password" />
+							<div className="text-2xl font-bold my-3">
+								Descrizione
+							</div>
+							<input
+								className="w-full"
+								type="text"
+								placeholder={user.Description}
+							/>
+						</div>
+						<button
+							className="btn btn-primary w-1/7 mt-5 mx-auto disabled"
+							type="submit"
+							disabled
+						>
+							APPLICA CAMBIAMENTI
+						</button>
+					</form>
 				</div>
 			))}
 		</div>
